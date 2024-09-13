@@ -23,6 +23,6 @@
         "@cloudflare/workers-types/2023-07-01"
     ]
   },
-  "include": ["src"],
+  "include": ["src", "src/hooks/aws-lambda-solver.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

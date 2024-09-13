@@ -1,9 +1,37 @@
-import { fetchSolution } from "../hooks/aws-lambda-solver";
+// import { fetchSolution } from "../hooks/aws-lambda-solver";
 
 type sudokuBoard = number[][];
 
-export const fetchSudoku = async (sudokuBoard: sudokuBoard) => {
-    return await fetchSolution(sudokuBoard);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const fetchSudoku = async (puzzle: sudokuBoard): Promise<any> => {
+
+    const apiUrl = 'https://ymymolr4tt5j6p62j7zq3ycqsy0lhhnf.lambda-url.us-east-2.on.aws/';
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ sudokuBoard: puzzle }),
+      });
+
+      if (!response.ok) {
+        console.error('Fetch Error:', response); 
+      }
+
+      const data = await response.json();
+      console.log(data);
+      return data;
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error('Fetch Error:', error); 
+        throw new Error(error.message);
+      } else {
+        throw new Error('An unknown error occurred');
+      }
+    }
+    // return await fetchSolution(sudokuBoard);
 };
 
 export const parseSudokuBoardFromList = (sudokuBoard: number[]) => {

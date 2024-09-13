@@ -20,12 +20,13 @@ function App() {
     const sudokuBoard = parseSudokuBoardFromList(cellValues);
 
     fetchSudoku(sudokuBoard).then((response) => {
-        const stringResponse = Buffer.from(response.Payload as Uint8Array).toString();
-        console.log(stringResponse);
-        const parsedResponse = parseSudokuBoardFromJson(stringResponse);
+        // const stringResponse = Buffer.from(response.Payload as Uint8Array).toString();
+        // console.log(stringResponse);
+        
+        console.log(response);
         for (let i = 0; i < 9; i++) {
           for (let j = 0; j < 9; j++) {
-            (cells[i*9+j] as HTMLInputElement).value = parsedResponse[i][j].toString();
+            (cells[i*9+j] as HTMLInputElement).value = response[i][j].toString();
           }
           
         }

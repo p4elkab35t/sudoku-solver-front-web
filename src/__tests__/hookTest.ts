@@ -1,4 +1,4 @@
-import { fetchSolution } from "../hooks/aws-lambda-solver";
+import { fetchSudoku } from "../controller/sudokuSolve.Controller";
 
 const testCase = [
       [5, 0, 4, 6, 7, 8, 9, 1, 2],
@@ -15,7 +15,7 @@ const testCase = [
 console.log(testCase);
 console.log("This is a test")
 // console.log(fetchSolution(testCase));
-const result = fetchSolution(testCase);
+const result = fetchSudoku(testCase);
 result.then((response) => {
     console.log(response);
     console.log(JSON.parse(Buffer.from(response.Payload as Uint8Array).toString()))
