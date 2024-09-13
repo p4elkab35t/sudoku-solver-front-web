@@ -11,6 +11,8 @@
     "deploy": "npm run build && wrangler pages deploy ./dist"
   },
   "dependencies": {
+    "@aws-sdk/client-lambda": "^3.650.0",
+    "dotenv": "^16.4.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -24,6 +26,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "tsx": "^4.19.1",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
     "wrangler": "^3.76.0"
