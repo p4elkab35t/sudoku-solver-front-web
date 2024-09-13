@@ -1,7 +1,7 @@
 import './App.css'
 import Board from './components/sudoku/Board'
 import CheckButton from './components/general/CheckButton'
-import {fetchSudoku, parseSudokuBoardFromList, parseSudokuBoardFromJson} from './controller/sudokuSolve.Controller'
+import {fetchSudoku, parseSudokuBoardFromList} from './controller/sudokuSolve.Controller'
 
 function App() {
 
