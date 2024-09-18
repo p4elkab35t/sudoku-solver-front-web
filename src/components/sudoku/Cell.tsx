@@ -1,15 +1,20 @@
 import "./Cell.css";
-import React from "react";
+import React, {} from "react";
+import { useState } from "react";
 
 interface CellProps {
     cellKey: number;
+    isLoading: boolean;
 }
 
 const functionKeys = ["Backspace", "Delete", "ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Tab", "Enter", "F5"];
 
 
 
-const Cell: React.FC<CellProps> = ({cellKey}) => {
+const Cell: React.FC<CellProps> = ({cellKey, isLoading=false}) => {
+
+    const [isManual, setManual] = useState<boolean>(false);
+
 
     const id: string = cellKey.toString();
 
@@ -29,6 +34,10 @@ const Cell: React.FC<CellProps> = ({cellKey}) => {
 
         if (e.key === "Backspace" || e.key === "Delete") {
             e.currentTarget.value = "";
+            setManual(false);
+        }
+        if (regex.test(e.key)) {
+            setManual(true);
         }
 
         const numId = parseInt(id);
@@ -91,14 +100,12 @@ const Cell: React.FC<CellProps> = ({cellKey}) => {
     if(Math.floor(cellKey / 9) == 2 || Math.floor(cellKey / 9) == 5 ) {
         classNames += " border-bottom";
     }
-    
-
-    
 
     return (
         // console.log(id, " created"),
         <div className={classNames} id={id}>
-            <input type="text" className="cellEntry" maxLength={1} onBlur={handleBlur} onFocus={handleFocus} onKeyDown={handleKeyPress} autoFocus/>
+            <input type="text" className={`cellEntry ${isManual?"manual":"automatic"}`} maxLength={1} onBlur={handleBlur} onFocus={handleFocus} onKeyDown={handleKeyPress} disabled={isLoading} autoFocus/>
+            {isLoading&&!isManual ? (<div className="loadingNumber"></div>) : null}
         </div>
     )
 }

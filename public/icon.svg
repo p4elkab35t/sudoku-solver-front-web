@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <style bx:fonts="Cantarell">@import url(https://fonts.googleapis.com/css2?family=Cantarell%3Aital%2Cwght%400%2C400%3B0%2C700%3B1%2C400%3B1%2C700&amp;display=swap);</style>
+  </defs>
+  <rect x="9.546" y="10.21" width="479.714" height="479.713" rx="30" ry="30" style="fill: rgb(216, 216, 216); stroke-width: 21px; stroke: color(srgb-linear 0.075 0.038 0.261);"/>
+  <text style="fill: rgb(51, 51, 51); font-family: Cantarell; font-size: 494px; letter-spacing: 6.1px; stroke-dasharray: 2px; stroke-width: 28px; white-space: pre;" x="100.835" y="420.114">7</text>
+</svg>

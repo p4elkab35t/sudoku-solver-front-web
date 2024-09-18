@@ -46,3 +46,36 @@
     background-color: lightblue !important;
     caret-color: transparent;
 }
+
+.cellEntry.automatic{
+    color: #444466;
+}
+
+.loadingNumber{
+    background-color: #363636;
+    /* font-size: 2.5rem; */
+    /* font-weight: bold; */
+    text-align: center;
+    /* background-color: white; */
+    /* border: 1px solid black; */
+    width: 1.8rem;
+    height: 2.5rem;
+    border-radius: 0.2rem;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    animation: skeleton 1.2s infinite;
+}
+
+@keyframes skeleton{
+    0%{
+        background-color: #565656;
+    }
+    50%{
+        background-color: #464646;
+    }
+    100%{
+        background-color: #565656;
+    }
+}

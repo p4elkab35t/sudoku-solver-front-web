@@ -1,0 +1,89 @@
+.notification {
+  position: relative; /* Required for timer animation */
+  background-color: #444; /* Dark background for notifications */
+  color: white;
+  padding: 15px;
+  margin: 10px 0; /* Adds space between stacked notifications */
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  width: 300px; /* Fixed width for consistent layout */
+  display: flex; 
+  justify-content: space-between; /* Aligns the text and close button */
+  align-items: center;
+  animation: fadein 0.5s, fadeout 0.5s 2s forwards; /* Optional fade animations */
+}
+
+.notification.success {
+  color: #4caf50;
+}
+
+.notification.success .body::after {
+  content: "✔";
+  margin-left: 0.5rem;
+}
+
+.notification.error {
+  color: #f44336;
+}
+
+.notification.error .body::after {
+  content: "✖";
+  margin-left: 0.5rem;
+}
+
+.notification.info {
+  color: #2196f3;
+}
+
+.notification.info .body::after {
+  content: "ℹ";
+  margin-left: 0.5rem;
+}
+
+.notification .body {
+  display: flex;
+  align-items: center;
+}
+
+.notification::after{
+  /* Adds timer animation to notifications */
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  color: white;
+  padding: 2px 0;
+  /* border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px; */
+  text-align: center;
+  animation: timer 3s forwards;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes timer {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}

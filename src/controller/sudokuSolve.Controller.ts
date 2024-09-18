@@ -17,15 +17,15 @@ export const fetchSudoku = async (puzzle: sudokuBoard): Promise<any> => {
       });
 
       if (!response.ok) {
-        console.error('Fetch Error:', response); 
+        // console.error('Fetch Error:', response); 
       }
 
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       return data;
     } catch (error) {
       if (error instanceof Error) {
-        console.error('Fetch Error:', error); 
+        // console.error('Fetch Error:', error); 
         throw new Error(error.message);
       } else {
         throw new Error('An unknown error occurred');
